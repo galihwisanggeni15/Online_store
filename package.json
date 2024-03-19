@@ -1,12 +1,25 @@
 {
     "private": true,
+<<<<<<< HEAD
+    "type": "module",
+=======
+>>>>>>> c9349bd851c4ed29e8778889950d66c0e5b802ab
     "scripts": {
         "dev": "vite",
         "build": "vite build"
     },
     "devDependencies": {
+<<<<<<< HEAD
+        "axios": "^1.6.4",
+        "laravel-vite-plugin": "^1.0.0",
+        "vite": "^5.0.0"
+    },
+    "dependencies": {
+        "chart.js": "^4.4.2"
+=======
         "axios": "^1.1.2",
         "laravel-vite-plugin": "^0.7.2",
         "vite": "^4.0.0"
+>>>>>>> c9349bd851c4ed29e8778889950d66c0e5b802ab
     }
 }
