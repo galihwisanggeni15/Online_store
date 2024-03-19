@@ -13,8 +13,20 @@ class AdminModel extends Model
     {
         return DB::table($table)->get();
     }
-    public static function GetDataById($table, $data, $id)
+    public static function CreateData($table, $data)
     {
-        return DB::table($table)->where($data, $id)->get();
+        return DB::table($table)->insert($data);
+    }
+    public static function updateData($table, $key, $value, $data)
+    {
+        return DB::table($table)->where($key, $value)->update($data);
+    }
+    public static function GetDataById($table, $key, $value)
+    {
+        return DB::table($table)->where($key, $value)->first();
+    }
+    public static function getNamaBarangById($table, $data, $id, $columnName)
+    {
+        return DB::table($table)->where($data, $id)->value($columnName);
     }
 }
