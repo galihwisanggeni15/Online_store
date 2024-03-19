@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,13 @@ Route::get('/login', [AdminController::class, 'login'])->name('login');
 Route::post('/login/submit', [AdminController::class, 'loginsubmit'])->name('loginsubmit');
 
 
+
+Route::get('/navbar/header', [PortfolioController::class, 'index']);
+Route::get('/isi/dashboard', [PortfolioController::class, 'dashboard']);
+Route::get('/isi/dataproduk', [PortfolioController::class, 'dataproduk']);
+Route::get('/isi/laporan', [PortfolioController::class, 'laporan']);
+// Route::get('/layouts/sidebar', [PortfolioController::class, 'dataproduk']);
+
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 Route::get('/admin/databarang', [AdminController::class, 'databarang'])->name('databarang');
 Route::post('/admin/pembayaran', [AdminController::class, 'pembayaran'])->name('pembayaran');
@@ -28,3 +36,4 @@ Route::get('/admin/laporan', [AdminController::class, 'laporan'])->name('laporan
 
 Route::get('/listbarang/{id}', [AdminController::class, 'listbarang'])->name('listbarang');
 // Route::post('/bayar', [AdminController::class, 'bayar'])->name('bayar');
+

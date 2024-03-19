@@ -1,0 +1,226 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main
+{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.containerPembayaran
+{
+    display: flex;
+    width: 100%;
+    max-width: 1500px;
+    padding-right: 50px;
+    background-color: #FFEC80;
+}
+.containerPembayaran .contentPembayaran 
+{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    /* background-color: #333; */
+    margin-top: 100px;
+}
+.containerPembayaran .contentPembayaran .cardPembayaran
+{
+    width: 95%;
+    height: auto;
+    margin-bottom: 30px;
+    background-color: #cccccc;
+    margin-top: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.containerPembayaran .contentPembayaran .cardPembayaran .judulPembayaran
+{
+    width: 100%;
+    height: 40px;
+    background-color: #1266d4c9;
+    padding: 5px 0 0 10px;
+    color: #fff;
+}
+.containerPembayaran .contentPembayaran .cardPembayaran .isiPembayaran
+{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 2%;
+}
+.containerPembayaran .contentPembayaran .cardPembayaran .isiPembayaran .cardIsi
+{
+    display: flex;
+    width: 100%;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 3px;
+    margin-top: 20px;
+}
+.containerPembayaran .contentPembayaran .cardPembayaran .isiPembayaran .cardIsi .right
+{
+    width: 30%;
+    padding-top: 7px;
+    border-right: 1px solid #b9b6b6;
+    padding-left: 10px;
+}
+.containerPembayaran .contentPembayaran .cardPembayaran .isiPembayaran .cardIsi .left
+{
+    width: 70%;
+    padding-top: 7px;
+    padding-left: 10px;
+}
+.containerPembayaran .contentPembayaran .cardPembayaran .isiPembayaran .tabelbayar
+{
+    width: 100%;
+    background-color: #fff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+  
+th:first-child, td:first-child {
+    border-left: 1px solid #ddd;
+}
+  
+th:last-child, td:last-child {
+    border-right: none;
+}
+.containerPembayaran .contentPembayaran .cardPembayaran .isiPembayaran .tabelbayar button
+{
+    width: 80%;
+    height: 30px;
+    background-color: #ad3531f6;
+    color: #fff;
+}
+.containerPembayaran .contentPembayaran .cardPembayaran .isiPembayaran .tabelbayar button:active
+{
+    transform: scale(1.04);
+}
+.containerPembayaran .contentPembayaran .cardPembayaran .isiPembayaran .cardtotal 
+{
+    width: 40%;
+    display: flex;
+    margin-right: auto;
+    /* margin-left: auto; */
+}
+.containerPembayaran .contentPembayaran .cardPembayaran .isiPembayaran .cardtotal form
+{
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+}
+.containerPembayaran .contentPembayaran .cardPembayaran .isiPembayaran .cardtotal form label
+{
+    display: block;
+    width: 30%;
+    box-sizing: border-box;
+}
+.containerPembayaran .contentPembayaran .cardPembayaran .isiPembayaran .cardtotal form input
+{
+    width: 60%;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.containerPembayaran .contentPembayaran .cardPembayaran .isiPembayaran .cardbayar
+{
+    display: flex;
+    width: 50%;
+    margin-left: auto;
+}
+.containerPembayaran .contentPembayaran .cardPembayaran .isiPembayaran .cardbayar form
+{
+    display: flex;
+    width: 100%;
+}
+.containerPembayaran .contentPembayaran .cardPembayaran .isiPembayaran .cardbayar form label
+{
+    display: block;
+    width: 20%;
+}
+.containerPembayaran .contentPembayaran .cardPembayaran .isiPembayaran .cardbayar form input
+{
+    width: 50%;
+    height: 30px;
+    border: none;
+    outline: none;
+}
+.containerPembayaran .contentPembayaran .cardPembayaran .isiPembayaran .cardbayar form .btnBayar
+{
+    width: 20%;
+    margin-left: auto;
+    background-color: #29f50e;
+    border-radius: 5px;
+    border: none;
+}
+.containerPembayaran .contentPembayaran .cardPembayaran .isiPembayaran .cardbayar form .btnBayar:active
+{
+    transform: scale(1.04);
+}
+.containerPembayaran .contentPembayaran .cardPembayaran .isiPembayaran .cardbayar form .btnBayar .fa-coins
+{
+    margin-right: 5px;
+}
+.containerPembayaran .contentPembayaran .cardPembayaran .isiPembayaran .cardKembali
+{
+    width: 40%;
+    height: 30px;
+    text-align: center;
+    padding-top: 5px;
+    margin-right: auto;
+    margin-top: 30px;
+} 
+.containerPembayaran .contentPembayaran .cardPembayaran .isiPembayaran .cardKembali form
+{
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+}
+.containerPembayaran .contentPembayaran .cardPembayaran .isiPembayaran .cardKembali form label
+{
+    display: block;
+    width: 25%;
+}
+.containerPembayaran .contentPembayaran .cardPembayaran .isiPembayaran .cardKembali form input
+{
+    width: 60%;
+    height: 30px;
+    border-radius: 5px;
+    margin-left: 20px;
+    border: none;
+    outline: none;
+}
+.containerPembayaran .contentPembayaran .cardPembayaran .isiPembayaran .cardcetak .fa-cash-register
+{
+    margin-right: 5px;
+}
+.containerPembayaran .contentPembayaran .cardPembayaran .isiPembayaran .cardcetak
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 30%;
+    height: 30px;
+    border-radius: 5px;
+    margin-top: 30px;
+    background-color: #FFEC80;
+}
