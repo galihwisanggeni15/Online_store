@@ -29,4 +29,9 @@ class AdminModel extends Model
     {
         return DB::table($table)->where($data, $id)->value($columnName);
     }
+    public static function GetDataByColumn($table, $column, $value)
+    {
+        return DB::table($table)->where($column, $value)->first();
+    }
+
 }

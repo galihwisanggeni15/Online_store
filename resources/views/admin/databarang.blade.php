@@ -1,84 +1,129 @@
-@extends('layout.app')
-@section('title', 'Data Barang')
+@extends('layouts.app')
+@section('title', 'data produk')
+
 @section('content')
-    <div class="container mt-3">
-        <table id="data-barang" class="table">
-            <thead>
-                <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Nama Barang</th>
-                    <th scope="col">Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($data as $item)
-                    <tr>
-                        <th scope="row">{{ $loop->iteration }}</th>
-                        <td>{{ $item->nama_barang }}</td>
-                        <td><a href="#" class="btn-tambah"
-                                onclick="listbarang({{ $item->id_barang }}, '{{ $item->nama_barang }}')">Tambah</a></td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-        <div class="card p-2">
-            <form action="{{ route('pembayaran') }}" method="POST">
-                @csrf
-                <table id="barang-added" class="table">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama</th>
-                            <th>Total</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Data will be dynamically added here -->
-                    </tbody>
-                </table>
-                <button type="submit" class="btn btn-success">Bayar</button>
-            </form>
+    <div class="contentDP">
+        <div class="grubatas">
+            <div class="mode">
+                <span class="mode-btn active" id="mode1" onclick="changeMode('mode1')" style="display: none;">
+                    <i class="fas fa-bars"></i>
+                </span>
+                <span class="mode-btn" id="mode2" onclick="changeMode('mode2')">
+                    <i class="fa-brands fa-windows"></i>
+                </span>
+            </div>
+
+            <div class="search">
+                <form>
+                    <input type="text" placeholder="search"></input>
+                    <button>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="tambahbarang">
+            <a href="{{ route('tambahdatabarang') }}">Tambah Barang</a>
+        </div>
+        <div class="grubcard1" id="grubcard1">
+            <div class="cardBarang">
+                <figure>
+                    <img src="/img/earphone.jpeg" class="custom-image" />
+                </figure>
+                <h4>erphone apik pool</h4>
+                <div class="grub-kanan">
+                    <span>
+                        <a href="#">
+                            <i class="fas fa-plus-circle"></i>
+                        </a>
+                    </span>
+                    <span class="edit">
+                        <a href="#">
+                            <i class="fa-solid fa-pencil"></i>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="grubcard2" id="grubcard2" style="display: none;">
+            <div class="cardBarang">
+                <div class="overlay">
+                    <span class="edit">
+                        <a href="#">
+                            <i class="fa-solid fa-pencil"></i>
+                        </a>
+                    </span>
+                    <a href="#">
+                        <i class="fas fa-plus-circle"></i>
+                    </a>
+                    <p>Erpon Apik</p>
+                </div>
+                <figure>
+                    <img src="/img/earphone.jpeg" alt="Deskripsi gambar" class="custom-image" />
+                </figure>
+            </div>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <div class="keranjang" id="keranjang">
+        <div class="btnkeranjang" onclick="bukakeranjang()">
+            <i id="thumbtackIcon" class="fa-solid fa-thumbtack"></i>
+        </div>
+        <div class="isikeranjang" id="isikeranjang">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nama Barang</th>
+                        <th>Jumlah</th>
+                        <th>Harga</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pensil</td>
+                        <td class="grubjmlh">
+                            <button onclick="kurangiJumlah()">-</button>
+                            <div class="jmlh">1</div>
+                            <button onclick="tambahJumlah()">+</button>
+                        </td>
+                        <td>Rp 2.000.000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="grubtotal" id="grubtotal">
+            <div class="total">
+                <p>total :</p>
+                <b>Rp 12.000.000</b>
+            </div>
+            <div class="grubhs">
+                <div class="hapus">
+                    hapus
+                </div>
+                <div class="simpan">
+                    simpan
+                </div>
+            </div>
+            <div class="bayar">
+                bayar
+            </div>
+        </div>
+    </div>
+
     <script>
-        function listbarang(id_barang, nama_barang) {
-            var stok_barang = <?php echo json_encode($stok_barang); ?>;
+        function tambahJumlah() {
+            var jumlahElement = document.querySelector('.jmlh');
+            var jumlah = parseInt(jumlahElement.textContent);
+            jumlahElement.textContent = jumlah + 1;
+        }
 
-            var existingRow = $('#barang-added tbody tr').filter(function() {
-                return $(this).find('td:nth-child(2)').text() === nama_barang;
-            });
-
-            if (existingRow.length > 0) {
-                var totalField = existingRow.find('td:nth-child(3) input');
-                var currentTotal = parseInt(totalField.val());
-                if (currentTotal + 1 <= stok_barang[id_barang]) {
-                    totalField.val(currentTotal + 1);
-                } else {
-                    alert('Stok barang tidak mencukupi.');
-                }
-            } else {
-                var rowCount = $('#barang-added tbody tr').length + 1;
-                if (1 <= stok_barang[id_barang]) {
-                    var newRow = '<tr>' +
-                        '<td>' + rowCount + '</td>' +
-                        '<td>' + nama_barang + '</td>' +
-                        '<td><input type="number" class="form-control" style="width:60px; text-align:center;"' +
-                        'name="jumlah_barang[' + id_barang + ']" value="1"></td>' +
-                        '<td><button type="button" class="btn btn-danger btn-delete">Hapus</button></td>' +
-                        '</tr>';
-                    $('#barang-added tbody').append(newRow);
-                } else {
-                    alert('Stok barang tidak mencukupi.');
-                }
+        function kurangiJumlah() {
+            var jumlahElement = document.querySelector('.jmlh');
+            var jumlah = parseInt(jumlahElement.textContent);
+            if (jumlah > 1) {
+                jumlahElement.textContent = jumlah - 1;
             }
-
-            // Tambahkan event listener untuk tombol hapus
-            $('.btn-delete').off().click(function() {
-                $(this).closest('tr').remove();
-            });
         }
     </script>
 @endsection
