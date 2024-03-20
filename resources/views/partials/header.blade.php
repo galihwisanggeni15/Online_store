@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 
+=======
+>>>>>>> 82d1a060279033468f2a948b86c4b4ccc633edbe
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +11,7 @@
     <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
 
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+<<<<<<< HEAD
 
     <link rel="stylesheet" href="{{ asset('css/dataproduk.css') }}">
 
@@ -15,11 +19,21 @@
 
     <link href="{{ asset('css/tambahdatabarang.css') }}" rel="stylesheet">
 
+=======
+    
+    <link rel="stylesheet" href="{{ asset('css/dataproduk.css') }}">
+    
+    <link rel="stylesheet" href="{{ asset('css/laporan.css') }}">
+
+>>>>>>> 82d1a060279033468f2a948b86c4b4ccc633edbe
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>@yield('nabar')</title>
 </head>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 82d1a060279033468f2a948b86c4b4ccc633edbe
 <body>
     <div class="navbarr">
         <div class="grubpropil">
@@ -52,6 +66,7 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 
 
 
@@ -103,3 +118,56 @@
     </script>
 
     {{-- <script src="{{ asset('js/jees.js') }}"></script> --}}
+=======
+    
+    
+
+
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+    let isSidebarOpen = false;
+
+    function togglepropil() {
+        isSidebarOpen = !isSidebarOpen;
+        const cardPropil = document.getElementById('cardpropil');
+        const caretIcon = document.getElementById('caretIcon');
+
+        if (isSidebarOpen) {
+            cardPropil.classList.add('open');
+            caretIcon.classList.add('open');
+        } else {
+            cardPropil.classList.remove('open');
+            caretIcon.classList.remove('open');
+        }
+    }
+
+    function handleClickOutside(event) {
+        const grubpropil = document.getElementById('grubpropil');
+        if (!grubpropil.contains(event.target) && event.target.id !== 'namapropil') {
+            isSidebarOpen = false;
+            const cardPropil = document.getElementById('cardpropil');
+            const caretIcon = document.getElementById('caretIcon');
+            cardPropil.classList.remove('open');
+            caretIcon.classList.remove('open');
+        }
+    }
+
+    function handleCloseOnScroll() {
+        if (isSidebarOpen) {
+            isSidebarOpen = false;
+            const cardPropil = document.getElementById('cardpropil');
+            const caretIcon = document.getElementById('caretIcon');
+            cardPropil.classList.remove('open');
+            caretIcon.classList.remove('open');
+        }
+    }
+
+    document.getElementById('namapropil').addEventListener('click', togglepropil);
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("scroll", handleCloseOnScroll);
+});
+    </script>
+    
+{{-- <script src="{{ asset('js/jees.js') }}"></script> --}}
+>>>>>>> 82d1a060279033468f2a948b86c4b4ccc633edbe
